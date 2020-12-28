@@ -2,13 +2,12 @@ FROM alpine:3.7
 
 WORKDIR /app
 
-RUN apk add --no-cache bash curl postgresql-client
+RUN apk add --no-cache curl
 
-COPY stocksDataLoad.sh .
-COPY post-data-load.sql .
+COPY mfDataLoad.sh .
 
-RUN chmod +x stocksDataLoad.sh
-RUN chmod +x post-data-load.sql
+RUN chmod +x mfDataLoad.sh
 
-ENTRYPOINT ["./stocksDataLoad.sh"]
+ENTRYPOINT ["./mfDataLoad.sh"]
+
 
